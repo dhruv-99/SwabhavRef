@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{6C7B5CAA-0AFE-49C4-A7E1-37046D93CBF7}</ProjectGuid>
+    <ProjectGuid>{EC316161-1F88-4FC0-838E-13C8E3039748}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>NumberGuessingApp</RootNamespace>
-    <AssemblyName>NumberGuessingApp</AssemblyName>
+    <RootNamespace>ObjectInheritanceApp</RootNamespace>
+    <AssemblyName>ObjectInheritanceApp</AssemblyName>
     <TargetFrameworkVersion>v3.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -37,7 +37,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Game.cs" />
+    <Compile Include="Account.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
