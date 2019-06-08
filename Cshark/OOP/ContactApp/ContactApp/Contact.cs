@@ -7,19 +7,20 @@ using System.Collections;
 namespace ContactApp
 {
     [Serializable]
-    class Contact
+    public class Contact
     {
         private string _name;
         private string _email;
         private string _phoneNumber;
-      
-         public Contact(string name, string email, string phoneNumber)
+
+        public Contact(string name, string email, string phoneNumber)
         {
             _name = name;
             _email = email;
             _phoneNumber = phoneNumber;
         }
-        
+       
+
         public string Name
         {
             get
@@ -41,7 +42,7 @@ namespace ContactApp
                 return _phoneNumber;
             }
         }
-       
-        
+
+
     }
 }

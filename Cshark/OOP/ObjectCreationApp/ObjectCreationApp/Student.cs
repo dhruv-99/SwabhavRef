@@ -3,12 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace ConsoleApplication1
+namespace ObjectCreationApp
 {
-    class Program
+    class Student
     {
-        static void Main(string[] args)
+       public void Print()
         {
+            Console.WriteLine("Student info");
         }
     }
 }

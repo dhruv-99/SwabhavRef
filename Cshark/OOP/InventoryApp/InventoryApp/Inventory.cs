@@ -24,7 +24,7 @@ namespace InventoryApp
         }
 
         
-      public ArrayList search(GuitarSpec searchspec)
+      public ArrayList Search(GuitarSpec searchspec)
         {
             ArrayList MatchingGuitar = new ArrayList();
             foreach(Guitar g in guitars)

@@ -13,7 +13,7 @@ namespace InventoryApp
             Inventory inventory = new Inventory();
             InitializeInventory(inventory);
             GuitarSpec WhatErinLikes = new GuitarSpec(Builder.FENDER, "Stratocastor", Type.ELECTRIC, Wood.ALDER, Wood.ALDER);
-            ArrayList  MatchingGuitars = inventory.search(WhatErinLikes);
+            ArrayList  MatchingGuitars = inventory.Search(WhatErinLikes);
             if (MatchingGuitars.Count >= 0)
             {
                 Console.WriteLine("Erin, you might like these guitars :");

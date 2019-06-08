@@ -14,9 +14,11 @@ namespace ContactApp
         static void Main(string[] args)
         {
             PhoneBook phonebook = new PhoneBook();
-
+            
             Console.WriteLine("1 - Add new contact");
             Console.WriteLine("2 - Display contacts");
+            Console.WriteLine("3 - Search contact");
+            Console.WriteLine("4 - Export contact");
             int choice = Convert.ToInt32(Console.ReadLine());
             while (true)
             {
@@ -39,10 +41,29 @@ namespace ContactApp
                     display();
 
                 }
+                if (choice == 3)
+                {
+                    Console.WriteLine("Enter Name, Email or Phone Number :");
+                    string searchContact = Console.ReadLine();
+                    List<Contact> MatchingContacts = phonebook.SearchContact(searchContact);
+                   
+                    foreach (Contact con in MatchingContacts)
+                    {
+                        Console.WriteLine("Name = " + con.Name);
+                        Console.WriteLine("Email = " + con.Email);
+                        Console.WriteLine("Phone Number = " + con.PhoneNumber);
+                    }
+                }
+                if(choice ==4)
+                {
+                    phonebook.ExportContact();
+                }
                 if (choice == 0)
                     break;
                 Console.WriteLine("1 - Add new contact");
                 Console.WriteLine("2 - Display contacts");
+                Console.WriteLine("3 - Search contact");
+                Console.WriteLine("4 - Export contact");
                 Console.WriteLine("0 - Exit");
                 choice = Convert.ToInt32(Console.ReadLine());
             }
@@ -50,7 +71,7 @@ namespace ContactApp
         }
         public static void display()
         {
-            ArrayList phonediary = PhoneBook.DeserializeContact();
+            List<Contact> phonediary = PhoneBook.RetrieveContact();
             foreach (Contact c in phonediary)
             {
                 Console.WriteLine("Name = " + c.Name);

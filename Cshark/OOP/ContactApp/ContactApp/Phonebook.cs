@@ -6,25 +6,51 @@ using System.Collections;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
+
 namespace ContactApp
 {
     public class PhoneBook
     {
         public static string path = @"S:\\Swabhhav techlabs\usercontact.txt";
-        private ArrayList _contactList;
+        public string filepath = @"S:\\Swabhhav techlabs\ContactExport.csv";
+        private List<Contact> _contactList;
         public PhoneBook()
         {
 
-            _contactList = new ArrayList();
+            _contactList = new List<Contact>();
         }
         public void AddContact(string name, string email, string phoneNumber)
         {
             Contact contact = new Contact(name, email, phoneNumber);
-            _contactList = DeserializeContact();
+           _contactList = RetrieveContact();
             _contactList.Add(contact);
-            SerializeContact(_contactList);
+            StoreContact(_contactList);
         }
-        public static void SerializeContact(ArrayList contactlist)
+        public List<Contact> SearchContact(string searchContact)
+        {
+            _contactList = RetrieveContact();
+
+            List<Contact> MatchingContacts = new List<Contact>();
+            foreach (Contact c in _contactList)
+            {
+                if ((c.Name).Equals(searchContact) || (c.Email).Equals(searchContact) || (c.PhoneNumber).Equals(searchContact))
+                {
+                    MatchingContacts.Add(c);
+                }
+            }
+            return MatchingContacts;
+        }
+        public void ExportContact()
+        {
+            _contactList = RetrieveContact();
+            StringBuilder stringbuilder = new StringBuilder();
+            foreach (Contact c in _contactList)
+            {
+                stringbuilder.AppendLine(c.Name + "," + c.Email + "," + c.PhoneNumber);
+            }
+            File.WriteAllText(filepath, stringbuilder.ToString());
+        }
+        public static void StoreContact(List<Contact> contactlist)
         {
             using (FileStream filestreamer = new FileStream(path, FileMode.OpenOrCreate, FileAccess.Write))
             {
@@ -32,23 +58,23 @@ namespace ContactApp
                 binfomatter.Serialize(filestreamer, contactlist);
             }
         }
-        public static ArrayList DeserializeContact()
+        public static List<Contact> RetrieveContact()
         {
             using (FileStream filestreamer = new FileStream(path, FileMode.Open))
             {
                 BinaryFormatter binformatter = new BinaryFormatter();
-                return (ArrayList)binformatter.Deserialize(filestreamer);
+                return (List<Contact>)binformatter.Deserialize(filestreamer);
             }
         }
-        public ArrayList ContactList
+        public List<Contact> ContactList
         {
             get
             {
                 return _contactList;
             }
         }
-        
-       
+
+
 
     }
 }
