@@ -8,10 +8,10 @@ namespace EmployeeSalarySlipApp
     public class Employee
     {
         private string _employeeName;
-        private string _dateOfJoining;
+        private DateTime _dateOfJoining;
         protected double _basicSalary;
 
-        public Employee(string empName, string dateOfJoining, double salary)
+        public Employee(string empName, DateTime dateOfJoining, double salary)
             {
             _employeeName = empName;
             _dateOfJoining = dateOfJoining;
@@ -24,11 +24,18 @@ namespace EmployeeSalarySlipApp
                 return _employeeName;
             }
         }
-        public string DateOfJoining
+        public DateTime DateOfJoining
         {
             get
             {
                 return _dateOfJoining;
+            }
+        }
+        public int Experience
+        {
+            get
+            {
+                return (DateTime.Now.Year - _dateOfJoining.Year);
             }
         }
         public double BasicSalary
@@ -37,6 +44,10 @@ namespace EmployeeSalarySlipApp
             {
                 return _basicSalary;
             }
+        }
+        public override string ToString()
+        {
+            return "\nName = " + Name + "\nDate of Joining = " + DateOfJoining + "\nExperience = " + Experience;
         }
     }
 }

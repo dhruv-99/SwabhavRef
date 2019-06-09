@@ -10,7 +10,7 @@ namespace EmployeeSalarySlipApp
         private readonly double _bonus;
         private readonly double _pa;
 
-        public Developer(string empName, string dateOfJoining, double salary)
+        public Developer(string empName, DateTime dateOfJoining, double salary)
             : base(empName, dateOfJoining, salary)
         {
             _bonus = 0.4 * salary;
@@ -22,9 +22,8 @@ namespace EmployeeSalarySlipApp
         }
         public override string ToString()
         {
-            return "\nName = " + Name + "\nDate Of Joining = " + DateOfJoining + "\nBasic Salary = " + BasicSalary
-                +"\nBonus = " + Bonus+"\nPA = "+PerformanceAllowance+
-                "\nTotal Salary = "+CalculateDeveloperAllowance(BasicSalary)+"\n";
+            return base.ToString() + "\nBasic Salary = " + BasicSalary +"\nBonus = " + Bonus
+                +"\nPA = "+PerformanceAllowance+ "\nTotal Salary = "+CalculateDeveloperAllowance(BasicSalary)+"\n";
         }
         public double Bonus
         {

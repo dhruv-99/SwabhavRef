@@ -9,15 +9,15 @@ namespace EmployeeSalarySlipApp
     {
         private readonly double _perk;
 
-        public Accountant(string empName, string dateOfJoining, double salary)
+        public Accountant(string empName, DateTime dateOfJoining, double salary)
             : base(empName, dateOfJoining, salary)
         {
             _perk = 0.3 * salary;
         }
         public override string ToString()
         {
-            return "\nName = "+Name+"\nDate Of Joining = "+DateOfJoining+"\nBasicSalary = "+BasicSalary
-                +"\nPerk = "+ Perk+"Total Salary = "+CalculateAccountantAllowance(BasicSalary)+"\n";
+            return base.ToString() + "\nBasicSalary = "+BasicSalary +"\nPerk = "+ Perk 
+                +"Total Salary = "+CalculateAccountantAllowance(BasicSalary)+"\n";
         }
         public double CalculateAccountantAllowance(double salary)
         {

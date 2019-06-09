@@ -11,7 +11,7 @@ namespace EmployeeSalarySlipApp
         private readonly double _ta;
         private readonly double _da;
 
-        public Manager(string empName, string dateOfJoining, double salary)
+        public Manager(string empName, DateTime dateOfJoining, double salary)
             : base(empName, dateOfJoining, salary)
         {
             _hra = 0.5 * salary;
@@ -20,9 +20,9 @@ namespace EmployeeSalarySlipApp
         }
         public override string ToString()
         {
-            return "\nName = " + Name + "\nDate of Joining = " + DateOfJoining + "\nBasic Salary = " + BasicSalary 
-                + "\nHRA = " + HouseRentalAllowance + "\nTA = " + TravellingAllowance +
-                "\nDA = " + DearnessAllowance + "\nTotal Salary = " + CalculateManagerAllowance(BasicSalary)+"\n";
+            return base.ToString() + "\nBasic Salary = " + BasicSalary + "\nHRA = " + HouseRentalAllowance + 
+                "\nTA = " + TravellingAllowance + "\nDA = " + DearnessAllowance + "\nTotal Salary = "
+                + CalculateManagerAllowance(BasicSalary)+"\n";
         }
         public double CalculateManagerAllowance(double balance)
         {

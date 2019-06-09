@@ -9,9 +9,10 @@ namespace EmployeeSalarySlipApp
     {
         static void Main(string[] args)
         {
-            Employee accountant = new Accountant("Dhruv", "05-02-1997", 6000);
-            Employee developer = new Developer("Akash", "20-07-1996", 5000);
-            Employee manager = new Manager("Sanal", "31-07-1998", 7000);
+            Employee accountant = new Accountant("Dhruv",new DateTime(1997,02,05), 6000);
+            Employee developer = new Developer("Akash", new DateTime(1996,07,20), 5000);
+            Employee manager = new Manager("Sanal", new DateTime(1998,07,30), 7000);
+            
             Console.WriteLine("Employee details : "+manager.ToString());
             Console.WriteLine("Employee Details : "+accountant.ToString());
             Console.WriteLine("Employee Details : "+developer.ToString());
