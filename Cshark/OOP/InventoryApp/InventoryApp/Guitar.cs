@@ -4,44 +4,16 @@ using System.Text;
 
 namespace InventoryApp
 {
-    class Guitar
+    class Guitar : Instrument
     {
-        private string _serialNumber;
-        private double _price;
-        private GuitarSpec _spec;
+        
+       // private GuitarSpec _spec;
 
-        public Guitar(string serialNumber, double price, GuitarSpec spec)
+        public Guitar(string serialNumber, double price, GuitarSpec guitarspec) : base(serialNumber,price,guitarspec)
         {
-            _serialNumber = serialNumber;
-            _price = price;
-            _spec = spec;
+           
         }
 
-        public string SerialNumber
-        {
-            get {
-                return _serialNumber;
-            }
-        }
-
-        public double Price
-        {
-            get
-            {
-                return _price;
-            }
-            set
-            {
-                _price = value;
-            }
-        }
-
-        public GuitarSpec Spec
-        {
-            get
-            {
-                return _spec;
-            }
-        }
+        
     }
 }

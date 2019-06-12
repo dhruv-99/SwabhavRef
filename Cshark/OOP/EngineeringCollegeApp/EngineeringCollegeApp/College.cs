@@ -12,24 +12,24 @@ namespace EngineeringCollegeApp
         private int _collegeId;
         private string _collegeName;
         private string _collegeAddress;
-        private ArrayList _professors;
-        private ArrayList _students;
+        private List<Professor> _professors;
+        private List<Student> _students;
 
         public College(int collegeId, string collegeName, string collegeAddress)
         {
             _collegeId = collegeId;
             _collegeName = collegeName;
             _collegeAddress = collegeAddress;
-            _professors = new ArrayList();
-            _students = new ArrayList();
+            _professors = new List<Professor>();
+            _students = new List<Student>();
         }
-        public void AddStudent(Person person)
+        public void AddStudent(Student student)
         {
-            _students.Add(person);
+            _students.Add(student);
         }
-        public void AddProfessor(Person person)
+        public void AddProfessor(Professor professor)
         {
-            _professors.Add(person);
+            _professors.Add(professor);
         }
         public int CollegeId
         {
@@ -52,14 +52,14 @@ namespace EngineeringCollegeApp
                 return _collegeAddress;
             }
         }
-        public ArrayList Professors
+        public List<Professor> Professors
         {
             get
             {
                 return _professors;
             }
         }
-        public ArrayList Students
+        public List<Student> Students
         {
             get
             {

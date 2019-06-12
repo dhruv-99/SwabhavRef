@@ -22,18 +22,7 @@ namespace DogDoorApp
                 _door.Close();
             }
             _door.Open();
-            Thread thread = new Thread(AutoDoorClose);
-            thread.Start();
         }
-        public void AutoDoorClose()
-        {
-            
-            _door.Close();
-            
-            
-        }
-        
-       
 }
 }
     

@@ -8,26 +8,31 @@ namespace InventoryApp
 {
     class Inventory
     {
-        private ArrayList guitars;
+        private List<Instrument> instruments;
 
         public Inventory()
         {
-            guitars = new ArrayList();
-
+            instruments = new List<Instrument>();
         }
 
-        public void AddGuitar(string serialNumber, double price, GuitarSpec spec)                                            //Builder builder, string model, Type type, Wood backwood, Wood topwood)
+        public void AddInstrument(string serialNumber, double price, InstrumentSpec spec)                                            //Builder builder, string model, Type type, Wood backwood, Wood topwood)
         {
-            
-           Guitar guitar = new Guitar(serialNumber, price, spec);                                                            //builder, model, type, backwood, topwood);
-            guitars.Add(guitar);
+
+            Instrument instrument = null;
+            if(spec.GetType() == typeof (GuitarSpec)){
+                instrument = new Guitar(serialNumber,price, (GuitarSpec)spec);
+            }
+            else if(spec.GetType() == typeof(MandolinSpec)){
+                instrument = new Mandolin(serialNumber, price, (MandolinSpec)spec);
+            }
+            instruments.Add(instrument);
         }
 
         
-      public ArrayList Search(GuitarSpec searchspec)
+      public List<Guitar> Search(GuitarSpec searchspec)
         {
-            ArrayList MatchingGuitar = new ArrayList();
-            foreach(Guitar g in guitars)
+            List<Guitar> MatchingGuitar = new List<Guitar>();
+            foreach(Guitar g in instruments)
             {
                 if (g.Spec.Matches(searchspec))
                 {
@@ -37,10 +42,23 @@ namespace InventoryApp
             }
             return MatchingGuitar;
         }
-       
+        public List<Mandolin> Search(MandolinSpec searchspec)
+        {
+            List<Mandolin> MatchingMandolin = new List<Mandolin>();
+            foreach (Mandolin m in instruments)
+            {
+                if (m.Spec.Matches(searchspec))
+                {
+                    MatchingMandolin.Add(m);
+                }
 
+            }
+            return MatchingMandolin;
         }
-            
-            
+
+
     }
+
+
+}
 

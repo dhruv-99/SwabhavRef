@@ -61,12 +61,12 @@ namespace EngineeringCollegeApp
                 }
                 if (choice == 5)
                 {
-                    vit.AddProfessor(amit);
+                    vit.AddProfessor((Professor)amit);
                     Console.WriteLine("Professor added successfully..");
                 }
                 if (choice == 6)
                 {
-                    vit.AddStudent(akash);
+                    vit.AddStudent((Student)akash);
                     Console.WriteLine("Student added successfully..");
                 }
                 if (choice == 0)

@@ -4,37 +4,34 @@ using System.Text;
 
 namespace InventoryApp
 {
-    public class GuitarSpec : InstrumentSpec
+    class MandolinSpec : InstrumentSpec
     {
-        private int _numStrings;
+        private Style _style;
 
-        public  GuitarSpec(Builder builder, string model, Type type, int numStrings, Wood backwood, Wood topwood) : 
+        public  MandolinSpec(Builder builder, string model, Type type, Style style, Wood backwood, Wood topwood) : 
             base (builder, model, type, backwood, topwood)
         {
-            _numStrings = numStrings;
+            _style = style;
         }
-        public int NumStrings
+
+        public Style MandolinStyle
         {
             get
             {
-                return _numStrings;
+                return _style;
             }
         }
         public override bool Matches(InstrumentSpec otherspec)
         {
             if (!(base.Matches(otherspec)))
                 return false;
-            if(!(otherspec.GetType() == typeof (GuitarSpec)))
+            if (!(otherspec.GetType() == typeof( MandolinSpec)))
                 return false;
 
-            GuitarSpec spec = (GuitarSpec)otherspec;
-            if (_numStrings != spec._numStrings)
+            MandolinSpec spec = (MandolinSpec)otherspec;
+            if (!_style.Equals(spec._style))
                 return false;
             return true;
         }
-
-
-
-
     }
 }
