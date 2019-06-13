@@ -8,6 +8,7 @@ namespace EmployeeDataAnalysisApp
     public class EmployeeDataAnalyzer
     {
 
+
         public EmployeeOBT MaxSalariedEmployee(Dictionary<EmployeeOBT, EmployeeOBT> employees)
         {
             int max = 0;

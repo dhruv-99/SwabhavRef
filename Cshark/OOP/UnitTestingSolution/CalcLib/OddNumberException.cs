@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace InterfacesInheritanceApp.Interface
+namespace CalcLib
 {
-    class FooClass : IInheritableA,IInheritableB
+    class OddNumberException : Exception
     {
-        public void foo()
+        public OddNumberException(string message) : base(message)
         {
 
         }

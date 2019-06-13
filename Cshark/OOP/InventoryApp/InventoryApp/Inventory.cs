@@ -17,42 +17,46 @@ namespace InventoryApp
 
         public void AddInstrument(string serialNumber, double price, InstrumentSpec spec)                                            //Builder builder, string model, Type type, Wood backwood, Wood topwood)
         {
-
             Instrument instrument = null;
-            if(spec.GetType() == typeof (GuitarSpec)){
-                instrument = new Guitar(serialNumber,price, (GuitarSpec)spec);
+            if (spec.GetType() == typeof(GuitarSpec))
+            {
+                instrument = new Guitar(serialNumber, price, (GuitarSpec)spec);
             }
-            else if(spec.GetType() == typeof(MandolinSpec)){
+            else if (spec.GetType() == typeof(MandolinSpec))
+            {
                 instrument = new Mandolin(serialNumber, price, (MandolinSpec)spec);
             }
             instruments.Add(instrument);
         }
-
-        
-      public List<Guitar> Search(GuitarSpec searchspec)
+        public List<Instrument> Search(GuitarSpec searchspec)
         {
-            List<Guitar> MatchingGuitar = new List<Guitar>();
-            foreach(Guitar g in instruments)
+            List<Instrument> MatchingGuitar = new List<Instrument>();
+            for(int i = 0;i < instruments.Count; i++)
             {
-                if (g.Spec.Matches(searchspec))
+                if(instruments[i] is Guitar)
                 {
-                    MatchingGuitar.Add(g);
+                    if (instruments[i].Spec.Matches(searchspec))
+                    {
+                        MatchingGuitar.Add(instruments[i]);
+                    }
                 }
-                
             }
-            return MatchingGuitar;
+                return MatchingGuitar;
         }
-        public List<Mandolin> Search(MandolinSpec searchspec)
+        public List<Instrument> Search(MandolinSpec searchspec)
         {
-            List<Mandolin> MatchingMandolin = new List<Mandolin>();
-            foreach (Mandolin m in instruments)
-            {
-                if (m.Spec.Matches(searchspec))
+            List<Instrument> MatchingMandolin = new List<Instrument>();
+            if(searchspec.GetType() == typeof(MandolinSpec))
+                for (int i = 0; i < instruments.Count; i++)
                 {
-                    MatchingMandolin.Add(m);
+                    if (instruments[i] is Mandolin)
+                    {
+                        if (instruments[i].Spec.Matches(searchspec))
+                        {
+                            MatchingMandolin.Add(instruments[i]);
+                        }
+                    }
                 }
-
-            }
             return MatchingMandolin;
         }
 

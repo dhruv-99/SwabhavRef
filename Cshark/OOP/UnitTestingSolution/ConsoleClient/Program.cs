@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace InterfacesInheritanceApp.Interface
+namespace ConsoleClient
 {
-    class FooClass : IInheritableA,IInheritableB
+    class Program
     {
-        public void foo()
+        static void Main(string[] args)
         {
 
         }

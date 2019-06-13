@@ -27,16 +27,14 @@ namespace CollectionApp
             studentDetails.Add(dipesh, sanal);
             if (studentDetails.ContainsKey(dipesh))
             {
-  
 
-            Student dipesh2 = new Student(3, 10, "Dipesh");
-            studentDetails.Add(dipesh2, dipesh2);
-            Console.WriteLine(studentDetails.Count);
-            {
+
+                Student dipesh2 = new Student(3, 10, "Dipesh");
+                studentDetails.Add(dipesh2, dipesh2);
+                Console.WriteLine(studentDetails.Count);
 
             }
         }
-
         private static void CaseStudy4()
         {
             HashSet<Student> studentDetails = new HashSet<Student>();
