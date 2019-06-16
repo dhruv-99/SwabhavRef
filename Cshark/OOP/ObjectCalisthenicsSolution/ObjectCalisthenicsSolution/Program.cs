@@ -14,13 +14,13 @@ namespace ObjectCalisthenicsSolution
             int[] output = sorting.Numbers;
             sorting.Ascending();
             Display(output);
-            sorting.Descending();
+           // sorting.Descending();
             
 
         }
         public static void Display(int[] output)
         {
-            for(int i = 0;i<= output.Length;i++)
+            for(int i = 0;i< output.Length;i++)
             {
                 Console.WriteLine(output[i]);
             }

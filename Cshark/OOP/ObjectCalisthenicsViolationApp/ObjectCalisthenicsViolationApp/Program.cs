@@ -19,10 +19,9 @@ namespace ObjectCalisthenicsViolationApp
             }
             else
                 s.DescendOrder();
-            int[] result = s.Data;
-            for(int i = 0; i<=result.Length; i++)
+            for(int i = 0; i<s.Data.Length; i++)
             {
-                Console.WriteLine( result[i]);
+                Console.WriteLine( s.Data[i]);
             }
              
         }

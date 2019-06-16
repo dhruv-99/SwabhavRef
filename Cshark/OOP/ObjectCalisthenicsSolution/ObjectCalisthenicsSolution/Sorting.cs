@@ -14,30 +14,34 @@ namespace ObjectCalisthenicsSolution
         }
         public void Ascending()
         {
-            for(int i = 0; i <= _numbers.Length; i++)
+            int i = 1;
+            while (i < _numbers.Length - 1)
             {
-                if(_numbers[i] > _numbers[i + 1])
+                if (_numbers[i] > _numbers[i + 1])
                 {
                     int temp = _numbers[i];
-                    _numbers[i] = _numbers[i+1];
+                    _numbers[i] = _numbers[i] + 1;
                     _numbers[i + 1] = temp;
+                    i = - 1;
                 }
-
+                i++;
             }
         }
-        public void Descending()
-        {
-            for (int i = 0; i < _numbers.Length; i++)
-            {
-                if (_numbers[i] < _numbers[i + 1])
-                {
-                    int temp = _numbers[i];
-                    _numbers[i] = _numbers[i + 1];
-                    _numbers[i + 1] = temp;
-                }
-
-            }
-        }
+        //public void Descending()
+        //{
+        //    int i = 1;
+        //    while (i < _numbers.Length - 1)
+        //    {
+        //        if (_numbers[i] < _numbers[i + 1])
+        //        {
+        //            int temp = _numbers[i];
+        //            _numbers[i] = _numbers[i] + 1;
+        //            _numbers[i + 1] = temp;
+        //            i = -1;
+        //        }
+        //        i++;
+        //    }
+        //}
         public int[] Numbers
         {
             get
