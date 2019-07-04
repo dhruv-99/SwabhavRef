@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TicTacToeLib
 {
-   public class Game
+    public class Game
     {
         private Player[] _player;
         private Board _board;
@@ -21,7 +21,7 @@ namespace TicTacToeLib
         public Results Status()
         {
             return _status;
-                    
+
         }
         public void Play(int choice)
         {
@@ -32,9 +32,27 @@ namespace TicTacToeLib
                 _status = _analyzer.GetResult();
                 return;
             }
-            _board.SetPosition(choice,_player[_switching].MarK);
+            _board.SetPosition(choice, _player[_switching].MarK);
             _switching = 0;
             _status = _analyzer.GetResult();
+        }
+        public string PlayerName
+        {
+            get
+            {
+                if (_switching == 0)
+                    return _player[0].Name;
+                return _player[1].Name;
+            }
+        }
+        public string PlayerNameWin
+        {
+            get
+            {
+                if (_switching == 1)
+                    return _player[0].Name;
+                return _player[1].Name;
+            }
         }
     }
 }

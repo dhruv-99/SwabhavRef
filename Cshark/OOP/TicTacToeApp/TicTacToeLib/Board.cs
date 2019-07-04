@@ -5,7 +5,7 @@ using System.Text;
 
 namespace TicTacToeLib
 {
-   public class Board
+    public class Board
     {
         Cell[] _cells = new Cell[9];
 
@@ -19,10 +19,10 @@ namespace TicTacToeLib
 
         public void SetPosition(int position, Mark mark)
         {
-            if (_cells[position].IsAlreadyMarked())
-                throw new Exception("Cell Already Marked");
-            else
-                _cells[position].MarK = mark;
+                if (_cells[position].IsAlreadyMarked())
+                    throw new Exception("Cell Already Marked");
+                else
+                    _cells[position].MarK = mark;
         }
 
         public Mark GetMark(int position)

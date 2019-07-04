@@ -3,11 +3,22 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using TicTacToeLib;
+using System.Windows.Forms;
 namespace TicTacToeApp
 {
     class Program
     {
         static void Main(string[] args)
+        {
+           Application.EnableVisualStyles();
+           Application.Run(new TicTacToeForm());
+
+        //    Case1();
+        }
+
+
+
+        private static void Case1()
         {
             Board board = new Board();
             ResultAnalyzer analyzer = new ResultAnalyzer(board);
@@ -17,27 +28,29 @@ namespace TicTacToeApp
             Game game = new Game(players, board, analyzer);
             while (!board.IsFull())
             {
-                Console.WriteLine("\nPlayer " + players[0].Name + " Enter position for X");
-                int xPos = Convert.ToInt32(Console.ReadLine());
-                game.Play(xPos);
+                Console.WriteLine("\nPlayer " + game.PlayerName + " Enter position ");
+                int position = Convert.ToInt32(Console.ReadLine());
+                try
+                {
+                    game.Play(position);
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine(e.Message);
+                    continue;
+                }
                 BoardDisplay(board);
                 if (game.Status() == Results.WIN)
                 {
-                    Console.WriteLine("Player " + players[0].Name + " wins..");
+                    Console.WriteLine("Player " + game.PlayerName + " wins..");
                     break;
                 }
-                Console.WriteLine("\nPlayer " + players[1].Name + " Enter position for O");
-                int oPos = Convert.ToInt32(Console.ReadLine());
-                game.Play(oPos);
-                BoardDisplay(board);
-                if (game.Status() == Results.WIN)
+                if (game.Status() == (Results.DRAW))
                 {
-                    Console.WriteLine("Player " + players[1].Name + " wins..");
+                    Console.WriteLine("The match is draw");
                     break;
                 }
             }
-            if (game.Status().Equals(Results.DRAW))
-                Console.WriteLine("The match is draw");
         }
 
         public static void BoardDisplay(Board board)
@@ -48,6 +61,7 @@ namespace TicTacToeApp
                     Console.WriteLine("\n");
                 Console.Write(board.GetMark(i) + "\t");
             }
+            Console.WriteLine();
         }
     }
 }
