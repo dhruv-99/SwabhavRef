@@ -1,0 +1,20 @@
+﻿
+@{
+    Layout = null;
+}
+@using WelcomeMVCApp.Controllers;
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        <p>Old value : @ViewBag.OldValue</p>
+        <p>New Value : @Session["Counter"]</p>
+    </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+﻿
+@{
+    Layout = null;
+}
+@using DepartmentMVCApp.Models;
+@using DepartmentMVCApp.Views.Resources;
+@model AddViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            <p>@display.DeptName : @Html.TextBoxFor((m) => m.DeptName)</p>
+            <P>@display.DeptLocation : @Html.TextBoxFor((m) => m.Location)</P>
+            <input type="submit" value="Add">
+        }
+    </div>
+</body>
+</html>

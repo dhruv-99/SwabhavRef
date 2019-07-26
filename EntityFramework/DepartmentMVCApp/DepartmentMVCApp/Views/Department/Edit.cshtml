@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+@using DepartmentMVCApp.Models;
+@using DepartmentMVCApp.Views.Resources;
+@model EditViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+    @Html.ActionLink("Logout","Logout","Login")
+        <div>
+            @using (Html.BeginForm(FormMethod.Post))
+            {
+                <p>Department ID : @Html.TextBoxFor((m)=>m.Id)</p>
+                <p>@display.DeptName : @Html.TextBoxFor((m) => m.DeptName)</p>
+                <P>@display.DeptLocation : @Html.TextBoxFor((m) => m.Location)</P>
+                <input type="submit" value="Add">
+            }
+        </div>
+</body>
+</html>

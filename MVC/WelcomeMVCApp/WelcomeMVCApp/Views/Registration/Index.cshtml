@@ -1,0 +1,37 @@
+﻿
+@{
+    Layout = null;
+}
+@using WelcomeMVCApp.Controllers;
+@using WelcomeMVCApp.Models.Registration;
+@model RegistrationViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-1.9.1.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            <p>Name : @Html.TextBoxFor((m) => m.Name) @Html.ValidationMessageFor((m)=>m.Name)</p>
+            <p>Age : @Html.TextBoxFor((m) => m.Age) @Html.ValidationMessageFor((m)=>m.Age)</p>
+            <P>Salary : @Html.TextBoxFor((m) => m.Salary) @Html.ValidationMessageFor((m)=>m.Salary)</P>
+            <p>Email : @Html.TextBoxFor((m) => m.Email) @Html.ValidationMessageFor((m) => m.Email)</p>
+            <p>Password : @Html.TextBoxFor((m) => m.Password) @Html.ValidationMessageFor((m) => m.Password)</p>
+            <input type="submit" value="Register">
+
+           <p class="success"> @Model.Name</p>
+            <p class="success">@Model.Age</p>
+            <p class="success">@Model.Salary</p>
+            <p class="success">@Model.Email</p>
+        }
+    </div>
+</body>
+</html>
+ 

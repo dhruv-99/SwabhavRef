@@ -1,0 +1,28 @@
+﻿
+@{
+    Layout = null;
+}
+
+@using WelcomeMVCApp.Controllers;
+@using WelcomeMVCApp.Models.Login;
+@model LoginViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            <p>Username : @Html.TextBoxFor((m) => m.UserName) </p>
+            <p>Password : @Html.TextBoxFor((m) => m.Password) @Html.ValidationMessageFor((m) => m.Password)</p>
+            <input type="submit" value="Login">
+        }
+    </div>
+</body>
+</html>
+

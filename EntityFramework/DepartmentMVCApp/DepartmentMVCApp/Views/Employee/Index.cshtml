@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+@using DepartmentMVCApp.Models;
+@model EmployeeViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+    <p>@ViewBag.AutherizationMessage</p>
+
+    @Html.ActionLink("Add", "AddEmployee","Employee")
+    <h2>Count : @Model.Count</h2>
+    <div> 
+        <table class="table table-bordered">
+            <thead class="bg-dark" style="color:white">
+                <tr>
+                    <td>Employee ID</td>
+                    <td>Employee Name</td>
+                    <td>Employee Age</td>
+                    <td>Date of Joining</td>
+                    <td>Salary</td>
+                    <td>COMM</td>
+                    <td>Dept ID</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var emp in Model.Employees)
+                {
+                    <tr>
+                        <td>@emp.ID</td>
+                        <td>@emp.Name</td>
+                        <td>@emp.Age</td>
+                        <td>@emp.DateOfJoining</td>
+                        <td>@emp.Salary</td>
+                        <td>@emp.Comm</td>
+                        <td>@emp.Department.ID</td>
+                        <td>@Html.ActionLink("Edit", "Edit","Employee", new {id = emp.ID},null)
+                       @*  @Html.ActionLink("Delete", "DeleteEmployee", "Employee", new { id = emp.ID }, null)*@</td>
+                    </tr> }
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>_MasterLayout</title>
+</head>
+<body>
+ <p>   @Html.ActionLink("Index", "Index", "Home") &nbsp;
+    @Html.ActionLink("About", "About", "Home") &nbsp;
+    @Html.ActionLink("Career", "Career", "Home")</p>
+
+    <section>
+        @RenderBody()
+    </section>
+</body>
+</html>

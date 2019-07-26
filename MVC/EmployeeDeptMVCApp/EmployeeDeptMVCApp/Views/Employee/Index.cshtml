@@ -1,0 +1,53 @@
+﻿
+@{
+    Layout = null;
+}
+@using EmployeeDeptMVCApp.Model.Deprtment;
+@using EmployeeDeptMVCApp.Controllers;
+@model DepartmentViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        @Html.BeginForm(FormMethod.Post)
+        @Html.DropDownListFor(model => model.SelectedValue, new SelectList(Model.Items, "DEPTNO", "Value"))
+        <input type="submit" value="Get Details">
+        @*<table>
+            <thead>
+                <tr>
+                    <td>EMPNO</td>
+                    <td>ENAME</td>
+                    <td>JOB</td>
+                    <td>MGR</td>
+                    <td>HIREDATE</td>
+                    <td>SAL</td>
+                    <td>COMM</td>
+                    <td>DEPTNO</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in Model.Employees)
+                {
+                    <tr>
+                        <td>@employee.EMPNO </td>
+                        <td>@employee.ENAME</td>
+                        <td>@employee.JOB</td>
+                        <td>@employee.MGR</td>
+                        <td>@employee.HIREDATE</td>
+                        <td>@employee.SAL</td>
+                        <td>@employee.COMM</td>
+                        <td>@employee.DEPTNO</td>
+                    </tr>
+                }
+            </tbody>
+        </table>*@
+      
+
+    </div>
+</body>
+</html>

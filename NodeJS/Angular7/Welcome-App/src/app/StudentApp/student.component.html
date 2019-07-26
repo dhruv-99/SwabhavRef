@@ -1,0 +1,19 @@
+<img [src]='"./assets/login.jpg"'>
+<p>{{student['roll_number']}} </p>
+<p>{{student['name']}} </p>
+<p>{{student['cgpa']}} </p>
+<br><br><br>
+
+<p [innerHTML]="student.roll_number" [style.font-size]='"30px"'></p>
+<p [innerHTML]="student.name"></p>
+<p [innerHTML]="student.cgpa"></p>
+<br>
+<br>
+<p [innerHtml]='"Hello dhruv"'></p>
+
+<input type="button" value="click" (click)=loadStudData($event)>
+<p *ngFor="let student of students">
+    {{student['roll_number']}} 
+    {{student['name']}}
+     {{student['cgpa']}}
+</p>

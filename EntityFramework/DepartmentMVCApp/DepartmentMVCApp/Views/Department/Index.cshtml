@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+@using DepartmentMVCApp.Models;
+@using DepartmentMVCApp.Controllers;
+@using DepartmentMVCApp.Views.Resources;
+@model DepartmentViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>Index</title>
+</head>
+<body>
+   <p class="align-content-end"> @Html.ActionLink("Logout","Logout","Login")
+        <h2 class="text-center">Department Details</h2>
+    @Html.ActionLink("Add", "Add")
+    <div>
+        <table class="table table-bordered">
+            <thead>
+                <tr class="bg-dark" style="color : white">
+                    <td>DeptNumber</td>
+                    <td>DeptName</td>
+                    <td>DeptLocation</td>
+                    <td>Details</td>
+                    <td>Actions</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var dept in Model.Departments)
+                {
+                    <tr>
+                        <td>@dept.ID</td>
+                        <td>@dept.DeptName</td>
+                        <td>@dept.Location</td>
+                        <td>@Html.ActionLink("Employees", "Index", "Employee", new { id = dept.ID }, null)</td>
+                        <td>@Html.ActionLink("Edit", "Edit", "Department", new { id = dept.ID }, null)</td>
+                    </tr> }
+
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿
+@{
+    Layout = null;
+}
+@using DepartmentMVCApp.Models;
+@model AddEmployeeModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddEmployee</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm(FormMethod.Post))
+           
+        {
+            <p>Employee Dept : @Html.DropDownListFor((m) =>m.DepartmentId.ID, new SelectList(Model.Department, "ID", "DeptName"))</p>
+            <p>Employee Name : @Html.TextBoxFor((m) => m.EmployeeName)</p>
+            <P>Employee Age : @Html.TextBoxFor((m) => m.Age)</P>
+            <p>Date of Joining : @Html.TextBoxFor((m) => m.DateOfJoining)</p>
+            <P>Salary : @Html.TextBoxFor((m) => m.Salary)</P>
+            <p>Comm : @Html.TextBoxFor((m) => m.Comm)</p>
+             <input type="submit" value="Add">
+        }
+    </div>
+</body>
+</html>

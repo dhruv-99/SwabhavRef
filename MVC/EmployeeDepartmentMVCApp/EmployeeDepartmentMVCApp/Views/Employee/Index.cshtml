@@ -1,0 +1,59 @@
+﻿
+@{
+    Layout = null;
+}
+@using EmployeeDepartmentMVCApp.Models.Employee;
+@model EmployeeViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <div> 
+        @using (Html.BeginForm(FormMethod.Post))
+        {
+            @Html.DropDownListFor(model => model.SelectedValue , new List<SelectListItem> {
+           new SelectListItem {Text = "Accounting", Value = "10" },
+           new SelectListItem {Text = "Research", Value = "20" },
+           new SelectListItem {Text = "Sales", Value = "30" },
+           new SelectListItem {Text = "Operations", Value = "40" }
+       },"Select department")
+
+            <input type="submit" value="Get details">
+        }
+
+        <table>
+            <thead>
+                <tr>
+                    <td>EMPNO</td>
+                    <td>ENAME</td>
+                    <td>JOB</td>
+                    <td>MGR</td>
+                    <td>HIREDATE</td>
+                    <td>SAL</td>
+                    <td>COMM</td>
+                    <td>DEPTNO</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var employee in @Model.Employees)
+                {
+                    <tr>
+                        <td>@employee.EMPNO </td>
+                        <td>@employee.ENAME</td>
+                        <td>@employee.JOB</td>
+                        <td>@employee.MGR</td>
+                        <td>@employee.HIREDATE</td>
+                        <td>@employee.SAL</td>
+                        <td>@employee.COMM</td>
+                        <td>@employee.DEPTNO</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

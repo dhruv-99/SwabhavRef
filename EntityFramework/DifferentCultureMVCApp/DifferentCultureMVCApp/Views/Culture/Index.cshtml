@@ -1,0 +1,31 @@
+﻿
+@{
+    Layout = null;
+}
+@using DifferentCultureMVCApp.Models;
+@using DifferentCultureMVCApp.Views.Resources;
+@model DisplayViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+</head>
+<body>
+    <div>
+        @using (Html.BeginForm())
+        {
+            <p>
+                @Lang.input : @Html.TextBoxFor((m) => m.Data, new { id ="textBox"})
+            </p>
+                @Html.DropDownList("id", new List<SelectListItem> {
+           new SelectListItem {Text = "Hindi", Value = "hi-IN" },
+           new SelectListItem {Text = "Marathi", Value = "mr-IN" }
+       }, "Select language", new { onchange = "this.form.submit()" });
+        }
+    </div>
+    
+</body>
+</html>

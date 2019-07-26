@@ -1,0 +1,47 @@
+﻿
+@{
+    Layout = null;
+}
+@using WelcomeMVCApp.BusinessModel;
+@using WelcomeMVCApp.Models.Student;
+@model  IndexViewModel
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+   <link href="~/Content/bootstrap.css" rel="stylesheet" >
+    <title>Index</title>
+</head>
+<body>
+    @Html.ActionLink("Add  new user", "Add", "Student")
+    <div> 
+        <h1>Number of Students @Model.Count</h1>
+        <table class="table">
+            <thead><tr><td>RollNo</td>
+                <td>Name</td>
+                <td>CGPI</td>
+                <td>Location</td>
+                <td>Age</td>
+                
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var student in Model.students)
+                {
+                    <tr><td>@student.RollNumber</td>
+                <td>@student.Name</td>
+                <td>@student.CGPI</td>
+                <td>@student.Location</td>
+                <td>@(DateTime.Now.Year -Convert.ToDateTime( student.DateOfBirth).Year)</td> 
+                <td>@Html.ActionLink("edit", "Edit", "Student", new {  id = student.RollNumber},null)</td>
+                <td>@Html.ActionLink("Delete", "Delete", "Student", new { id = student.RollNumber }, null)</td>
+</tr>
+                }
+            </tbody>
+            </table>
+    
+
+    </div>
+</body>
+</html>

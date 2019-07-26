@@ -1,0 +1,65 @@
+﻿
+@{
+    Layout = null;
+}
+@using DepartmentMVCApp.Models;
+@model  EmployeeViewModel
+@using DepartmentMVCApp.Views.Resources;
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <title>DisplayEmployees</title>
+</head>
+<body>
+    <div>
+    @using (Html.BeginForm(FormMethod.Post))
+    {
+        @Html.TextBox("Search")
+        <input type="submit" value="Search">
+    }
+    </div>
+
+    <div>
+        <Table class="table">
+            <thead>
+                <tr>
+                    <td>@display.EmployeeID</td>
+                    <td>@display.EmployeeName</td>
+                    <td>@display.EmployeeAge</td>
+                    <td>@display.DateOfJoining</td>
+                    <td>@display.Sal</td>
+                    <td>@display.Comm</td>
+                    <td>Department</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach(var emp in Model.Employees)
+                {
+                    <tr>
+                        <td>@emp.ID</td>
+                        <td>@emp.Name</td>
+                        <td>@emp.Age</td>
+                        <td>@emp.DateOfJoining</td>
+                        <td>@emp.Salary</td>
+                        <td>@emp.Comm</td>
+                        <td>@emp.Department.DeptName</td>
+                    </tr>
+                }
+            </tbody>
+        </Table>
+    </div>
+
+    <div id="container" style="margin-left: 20px">
+        <p></p>
+        <p></p>
+        <div class="pagination" style="margin-left: 400px">
+            
+            <input type="button" value="Next" onclick="location.href='@Url.Action("DisplayEmployees","Employee",new {page1 )'">
+
+g        </div>
+    </div>
+</body>
+</html>
